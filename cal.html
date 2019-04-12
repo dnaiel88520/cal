@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>計算機</title>
+    <style>
+        button {
+            width: 60px;
+            height: 60px;
+        }
+        .clear {
+            width: 254px;
+        }
+    </style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous" />
+
+</head>
+
+<body>
+    <div style="width:300px; height: 480px; border-radius: 4px;" class="mx-auto my-auto ">
+        <input id="text" class="form-control text-left mt-3" type="text" value="" style="border:none">
+        </p>
+        <button id="clear" class="btn btn-outline-dark  clear" onclick="reless();">AC</button>
+        </p>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="1">7</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="2">8</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="3">9</button>
+        <button data-ops="plus" class="btn btn-outline-dark input-pad">+</button>
+        </p>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="4">4</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="5">5</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="6">6</button>
+        <button data-ops="minus" class="btn btn-outline-dark input-pad">-</button>
+        </p>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="7">1</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="8">2</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="9">3</button>
+        <button data-ops="times" class="btn btn-outline-dark input-pad">*</button>
+        </p>
+        <button type="button" class="btn btn-outline-dark   input-pad" value="0">0</button>
+        <button type="button" class="btn btn-outline-dark   input-pad" >.</button>
+        <button id="equals" class="btn btn-outline-dark equals" data-result="" onclick="answer();">=</button>
+        <button data-ops="divided by" class="btn btn-outline-dark input-pad">/</button>
+        </p>
+    </div>
+    <script>
+        var input = document.getElementById("text");
+        function inputButton() {
+            var text = this.innerHTML;
+            input.value += text;
+        }
+        function answer() {
+            var result = input.value;
+            input.value = eval(result);
+        }
+        function reless() {
+            input.value = "";
+        }
+
+        var inputButtons = document.getElementsByClassName("input-pad");
+        for (var i = 0; i < inputButtons.length; i++) {
+            inputButtons[i].onclick = inputButton
+        }
+
+
+
+    </script>
+</body>
+
+</html>
